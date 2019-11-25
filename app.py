@@ -3,6 +3,7 @@ from flask_cors import CORS
 from models import create_post, get_posts
 from flask_sqlalchemy import SQLAlchemy
 import xlrd
+import os
 
 app = Flask(__name__)
 
@@ -16,7 +17,7 @@ intersections = dict()
 app.config.update(
 
     SECRET_KEY='topsecret',
-    SQLALCHEMY_DATABASE_URI='postgresql://postgres:topsecret@localhost/dawai_db',
+    SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URI'],,
     SQLALCHEMY_TRACK_MODIFICATIONS=False
 )
 
