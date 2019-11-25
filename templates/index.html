@@ -1,0 +1,30 @@
+
+{% extends "layout.html"%}
+
+{% block content%}
+        <h1>Dawai</h1>
+        <img src={{ url_for('static', filename='dawai.png') }} width="150" height="120" alt="My Pic">
+        <br>
+        <form = action='/' method='post'>
+            <input placeholder='Drug 1' name='name1'>
+            <br>
+            <input placeholder='Drug 2' name='name2'>
+            <input type='submit' value='Submit'>
+        </form>
+        {% if len <= 1 %}
+        <div> Not enough items</div>
+        {% elif not posts%}
+        <div>Safe to take together</div>
+        {% else %}
+        
+        {% for post in posts %}
+        <div class="container-fluid", style="background-color:rgb(170, 11, 11)">{{post}}</div>
+       
+        {% endfor %}
+        <h3>There are possible Drug incompatibility.</h3>
+        <h3>Please refer back to your doctor or pharmacist.</h3>
+        <h3>Download Dawai app to know more</h3>
+        <h3>Thank you for using Dawai</h3>
+          {% endif %}
+ {% endblock content%}
+ 
